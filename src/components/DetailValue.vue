@@ -6,12 +6,8 @@
       contenteditable="true" 
       @focus="onFocus"
       @blur="onBlur"
-<<<<<<< HEAD
-      @keydown="keydown"/>
-=======
       @keydown="keydown"
       v-html="fieldValue"/>
->>>>>>> fix-tremble-change-value
     <label 
       v-if="field.type === 'boolean'"
       class="detailvalue__label">
