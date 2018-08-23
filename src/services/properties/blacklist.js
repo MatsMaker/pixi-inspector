@@ -1,6 +1,1 @@
-export default [
-    "children",
-    "parent",
-    "tempDisplayObjectParent",
-    "scope",
-  ];
+export default ["children", "parent", "tempDisplayObjectParent", "scope"];

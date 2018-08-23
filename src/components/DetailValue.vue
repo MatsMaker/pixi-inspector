@@ -7,7 +7,7 @@
       v-html="fieldValue"
       @focus="onFocus"
       @blur="onBlur"
-      @keydown="keydown"></span>
+      @keydown="keydown"/>
     <label 
       v-if="field.type === 'boolean'"
       class="detailvalue__label">
@@ -28,6 +28,14 @@ export default {
     isEdit: false,
     fieldValue: undefined
   }),
+  watch: {
+    field(newField, oldField) {
+      this.field = newField;
+      if (!this.isEdit) {
+        this.fieldValue = this.field.value;
+      }
+    }
+  },
   methods: {
     onFocus() {
       this.isEdit = true;
@@ -95,14 +103,6 @@ export default {
       }
       this.fieldValue = newValue;
       this.$emit("change", newValue);
-    }
-  },
-  watch: {
-    field: function(newField, oldField) {
-      this.field = newField;
-      if (!this.isEdit) {
-        this.fieldValue = this.field.value;
-      }
     }
   }
 };

@@ -28,7 +28,7 @@ export default class InspectorProperties {
       properties.push(...this.serialize(window.$pixi[property], [property], 3));
     });
     properties.sort((a, b) => (a.path > b.path ? 1 : -1));
-    const clearList = properties.filter(onlyUniquePath);//TODO need not push dublicated
+    const clearList = properties.filter(onlyUniquePath); //TODO need not push dublicated
     return clearList;
   }
   /* eslint-disable */
@@ -59,39 +59,39 @@ export default class InspectorProperties {
       if (Array.isArray(value)) {
         return [{ path: path.join("."), type: "Array" }];
       }
-        const properties = [];
-        filterProperties(value, properties).forEach(property => {
-          // if (properties.find(property => path === property.path)) {
-          // } else {
-            properties.push(
-              ...this.serialize(value[property], [...path, property], depth)
-            );
-          // }
-        });
-        if (value instanceof this.ObservablePointRef) {
-          properties.push(
-            {
-              path: path.join(".") + ".x",
-              type: "number",
-              value: value.x
-            },
-            {
-              path: path.join(".") + ".y",
-              type: "number",
-              value: value.y
-            }
-          );
-        }
-        if (value instanceof this.TransformBaseRef) {
-          properties.push({
-            path: path.join(".") + ".rotation",
+      const properties = [];
+      filterProperties(value, properties).forEach(property => {
+        // if (properties.find(property => path === property.path)) {
+        // } else {
+        properties.push(
+          ...this.serialize(value[property], [...path, property], depth)
+        );
+        // }
+      });
+      if (value instanceof this.ObservablePointRef) {
+        properties.push(
+          {
+            path: path.join(".") + ".x",
             type: "number",
-            value: value.rotation
-          });
-        }
-        if (properties.length !== 0) {
-          return properties;
-        }
+            value: value.x
+          },
+          {
+            path: path.join(".") + ".y",
+            type: "number",
+            value: value.y
+          }
+        );
+      }
+      if (value instanceof this.TransformBaseRef) {
+        properties.push({
+          path: path.join(".") + ".rotation",
+          type: "number",
+          value: value.rotation
+        });
+      }
+      if (properties.length !== 0) {
+        return properties;
+      }
       // (typeof value.constructor ? (value.constructor.name || type) : type
       return [{ path: path.join("."), type: "Object" }];
     }

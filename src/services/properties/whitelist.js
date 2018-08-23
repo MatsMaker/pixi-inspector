@@ -1,9 +1,9 @@
 export default [
-    "transform",
-    "position",
-    "scale",
-    "rotation",
-    "pivot",
-    "skew",
-    "anchor"
-  ];
+  "transform",
+  "position",
+  "scale",
+  "rotation",
+  "pivot",
+  "skew",
+  "anchor"
+];
