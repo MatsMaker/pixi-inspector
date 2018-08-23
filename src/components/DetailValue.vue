@@ -4,10 +4,14 @@
       v-if="field.type === 'number' || field.type === 'string'" 
       class="detailvalue__input" 
       contenteditable="true" 
-      v-html="fieldValue"
       @focus="onFocus"
       @blur="onBlur"
+<<<<<<< HEAD
       @keydown="keydown"/>
+=======
+      @keydown="keydown"
+      v-html="fieldValue"/>
+>>>>>>> fix-tremble-change-value
     <label 
       v-if="field.type === 'boolean'"
       class="detailvalue__label">
@@ -29,7 +33,7 @@ export default {
     fieldValue: undefined
   }),
   watch: {
-    field(newField, oldField) {
+    field(newField) {
       this.field = newField;
       if (!this.isEdit) {
         this.fieldValue = this.field.value;
@@ -47,7 +51,7 @@ export default {
       const oldValue = this.fieldValue;
       this.fieldValue = e.target.innerText;
       this.isEdit = false;
-      if (oldValue != this.fieldValue) {
+      if (oldValue !== this.fieldValue) {
         this.sentNewValue(this.fieldValue);
       }
     },
