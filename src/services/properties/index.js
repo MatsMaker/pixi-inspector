@@ -28,8 +28,8 @@ function constructorName(pixiObj, baseConsturctor = null, deep = 5) {
   if (implementations.hasOwnProperty(cntName)) {
     return cntName;
   }
-  if (pixiObj.__proto__) {
-    return constructorName(pixiObj.__proto__, bconst, deep);
+  if (pixiObj.prototype) {
+    return constructorName(pixiObj.prototype, bconst, deep);
   }
   return baseConsturctor;
 }
