@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "webpack-dev-server --mode development",
     "test": "npm run lint",
-    "lint": "eslint --fix --ext js,vue --max-warnings 0 src",
+    "lint": "eslint --ext js,vue --max-warnings 0 src",
     "clean": "rm -rf build",
     "build": "webpack --mode production -p --progress",
     "build:clean": "npm run clean && webpack --mode production -p",
