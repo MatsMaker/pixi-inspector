@@ -5,5 +5,16 @@ export default [
   "rotation",
   "pivot",
   "skew",
-  "anchor"
+  "anchor",
+  "visible",
+  "x",
+  "y",
+  "width",
+  "height",
+  "alpha",
+  "anchor",
+  "scale",
+  "mask",
+  "texture",
+  "name"
 ];
